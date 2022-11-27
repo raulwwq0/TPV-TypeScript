@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="./assets/images/cheeseburger.png" />
+        <title>TPV</title>
+    </head>
+    <body>
+        <main class="card-layout" id="cardLayout"></main>
+        <aside class="product-list" id="productList">
+            <header>
+                <p>Name</p>
+                <p>Size</p>
+                <p>Price</p>
+                <p>Price With VAT</p>
+                <p>Quantity</p>
+            </header>
+            <ul></ul>
+            <div class="total-pay">
+                <div class="total-wrapper">
+                    <h3>Total:</h3>
+                    <span> <span id="totalPrice">0.00</span>€ </span>
+                </div>
+                <div class="total-vat-wrapper">
+                    <h3>Total with VAT:</h3>
+                    <span> <span id="totalPriceVat">0.00</span>€ </span>
+                </div>
+                <div class="checkout-button" onclick="location.reload()">
+                    <i class="fa-solid fa-credit-card"></i> Checkout
+                </div>
+            </div>
+        </aside>
+    </body>
+    <script
+        src="https://kit.fontawesome.com/476a3ac777.js"
+        crossorigin="anonymous"
+    ></script>
+    <script type="module" src="./app.ts"></script>
+    <link rel="stylesheet" href="./assets/styles/styles.css" />
+</html>
