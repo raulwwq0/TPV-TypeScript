@@ -1,0 +1,229 @@
+{
+    "burgers": [
+        {
+            "id": "B001",
+            "name": "Classic Burger",
+            "price": 3.5,
+            "vat": 0.1,
+            "image": "./assets/images/burger.png",
+            "ingredients": [
+                {
+                    "name": "Bread",
+                    "gluten": true
+                },
+                {
+                    "name": "Meat",
+                    "gluten": false
+                },
+                {
+                    "name": "Salad",
+                    "gluten": false
+                },
+                {
+                    "name": "Tomato",
+                    "gluten": false
+                },
+                {
+                    "name": "Onion",
+                    "gluten": false
+                },
+                {
+                    "name": "Pickles",
+                    "gluten": false
+                }
+            ],
+            "gluten": true,
+            "vegetarian": false
+        },
+        {
+            "id": "B002",
+            "name": "Cheese Burger",
+            "price": 4.5,
+            "vat": 0.1,
+            "image": "./assets/images/cheeseburger.png",
+            "ingredients": [
+                {
+                    "name": "Bread",
+                    "gluten": true
+                },
+                {
+                    "name": "Meat",
+                    "gluten": false
+                },
+                {
+                    "name": "Cheese",
+                    "gluten": false
+                },
+                {
+                    "name": "Salad",
+                    "gluten": false
+                },
+                {
+                    "name": "Tomato",
+                    "gluten": false
+                },
+                {
+                    "name": "Onion",
+                    "gluten": false
+                },
+                {
+                    "name": "Pickles",
+                    "gluten": false
+                }
+            ],
+            "gluten": true,
+            "vegetarian": false
+        },
+        {
+            "id": "B003",
+            "name": "Veggie Burger",
+            "price": 4.5,
+            "vat": 0.1,
+            "image": "./assets/images/veggieburger.png",
+            "ingredients": [
+                {
+                    "name": "Bread",
+                    "gluten": true
+                },
+                {
+                    "name": "Veggie Meat",
+                    "gluten": false
+                },
+                {
+                    "name": "Salad",
+                    "gluten": false
+                },
+                {
+                    "name": "Tomato",
+                    "gluten": false
+                },
+                {
+                    "name": "Onion",
+                    "gluten": false
+                },
+                {
+                    "name": "Pickles",
+                    "gluten": false
+                }
+            ],
+            "gluten": false,
+            "vegetarian": true
+        },
+        {
+            "id": "B004",
+            "name": "Gluten Free Burger",
+            "price": 5.5,
+            "vat": 0.1,
+            "image": "./assets/images/gluttenfreeburger.png",
+            "ingredients": [
+                {
+                    "name": "Bread",
+                    "gluten": false
+                },
+                {
+                    "name": "Meat",
+                    "gluten": false
+                },
+                {
+                    "name": "Cheese",
+                    "gluten": false
+                },
+                {
+                    "name": "Salad",
+                    "gluten": false
+                },
+                {
+                    "name": "Tomato",
+                    "gluten": false
+                },
+                {
+                    "name": "Onion",
+                    "gluten": false
+                },
+                {
+                    "name": "Pickles",
+                    "gluten": false
+                }
+            ],
+            "gluten": false,
+            "vegetarian": false
+        },
+        {
+            "id": "B005",
+            "name": "Chicken Burger",
+            "price": 3.5,
+            "vat": 0.1,
+            "image": "./assets/images/chickenburger.png",
+            "ingredients": [
+                {
+                    "name": "Bread",
+                    "gluten": true
+                },
+                {
+                    "name": "Chicken",
+                    "gluten": false
+                },
+                {
+                    "name": "Salad",
+                    "gluten": false
+                },
+                {
+                    "name": "Tomato",
+                    "gluten": false
+                }
+            ],
+            "gluten": true,
+            "vegetarian": false
+        }
+    ],
+    "drinks": [
+        {
+            "id": "D001",
+            "name": "Fanta",
+            "price": 1.5,
+            "vat": 0.21,
+            "image": "./assets/images/fanta.png",
+            "sugar": true
+        },
+        {
+            "id": "D002",
+            "name": "Coca Cola",
+            "price": 1.5,
+            "vat": 0.21,
+            "image": "./assets/images/cocacola.png",
+            "sugar": true
+        },
+        {
+            "id": "D003",
+            "name": "Coca Cola Zero",
+            "price": 1.5,
+            "vat": 0.21,
+            "image": "./assets/images/cocacolazero.png",
+            "sugar": false
+        },
+        {
+            "id": "D004",
+            "name": "Beer",
+            "price": 2.5,
+            "vat": 0.21,
+            "image": "./assets/images/beer.png",
+            "sugar": false
+        },
+        {
+            "id": "D005",
+            "name": "Water",
+            "price": 1.5,
+            "vat": 0.21,
+            "image": "./assets/images/water.png",
+            "sugar": false
+        },
+        {
+            "id": "D006",
+            "name": "Lemon Juice",
+            "price": 1.5,
+            "vat": 0.21,
+            "image": "./assets/images/lemonjuice.png",
+            "sugar": true
+        }
+    ]
+}
