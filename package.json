@@ -12,10 +12,9 @@
   "devDependencies": {
     "autoprefixer": "^10.4.13",
     "imagemin": "^8.0.1",
-    "rollup-plugin-smart-asset": "^2.1.2",
+    "imagemin-pngquant": "^9.0.2",
     "typescript": "^4.6.4",
-    "vite": "^3.2.3",
-    "vite-plugin-imagemin": "^0.6.1"
+    "vite": "^3.2.3"
   },
   "dependencies": {
     "reset-css": "^5.0.1"
