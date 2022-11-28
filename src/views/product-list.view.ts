@@ -1,5 +1,5 @@
 import { Product } from "../interfaces/product.interface";
-import { ProductInList } from "../templates/product-in-list.template";
+import { ProductInList } from "../components/product-in-list.component";
 import { RemoveProductCallback, UpdatePricesCallback } from "../types/callbacks.type";
 
 export class ProductListView {

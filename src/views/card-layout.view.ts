@@ -1,7 +1,7 @@
 import { Burger } from "../models/burger.model";
 import { Drink } from "../models/drink.model";
-import { BurgerCard } from "../templates/burger-card.template";
-import { DrinkCard } from "../templates/drink-card.template";
+import { BurgerCard } from "../components/burger-card.component";
+import { DrinkCard } from "../components/drink-card.component";
 import { AddProductToListCallback } from "../types/callbacks.type";
 
 export class CardLayoutView {
