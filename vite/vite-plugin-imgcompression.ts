@@ -20,9 +20,12 @@ const compressor = (src: string, dest: string) => {
 };
 
 const compressorLog = (data: CompressorOutput[]) => {
+    console.log('\n########################################  Compressing Images  ######################################## \n');
     for (const file of data) {
         console.log(`   Compressed "${file.sourcePath}" to "${file.destinationPath}"`);
     }
+    console.log('\n########################################  Images Compressed  ######################################### \n');
+
 };
 
 export default ({src, dest}) => {
@@ -30,9 +33,7 @@ export default ({src, dest}) => {
         name: 'vite-plugin-imgcompression',
         enforce: 'post',
         async closeBundle() {
-            console.log('\n########################################  Compressing Images  ######################################## \n');
             compressorLog(await compressor(src, dest));
-            console.log('\n########################################  Images Compressed  ######################################### \n');
         }
     }
 }
