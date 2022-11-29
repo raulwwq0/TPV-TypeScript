@@ -19,9 +19,12 @@ export class TpvController {
     }
 
     private handlerAddProductToList = (id: string, size: string): void => {
-        const product =
-            this.productListService.findProduct(id, size) ||
-            this.createProduct(id, size);
+        const product: Product = this.productListService.findProduct(id, size);
+        product ? this.updateProductInList(product) : this.addProductToList(id, size);       
+    };
+
+    private addProductToList = (id: string, size: string): void => {
+        const product = this.createProduct(id, size);
 
         if (product.quantity === 0 || product.size !== size) {
             product.quantity++;
@@ -38,6 +41,16 @@ export class TpvController {
                 this.handlerRemoveProduct
             );
         }
+    }
+
+
+    private updateProductInList = (product: Product): void => {
+        product.quantity++;
+        this.productListView.updateQuantity(product);
+        this.productListView.updateTotalPrices(
+            this.productListService.totalPrice,
+            this.productListService.totalPriceWithVat
+        );
     };
 
     private createProduct = (id: string, size: string): Product => {

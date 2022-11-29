@@ -25,7 +25,7 @@ export class ProductListView {
         this.totalPriceWithVat.textContent = totalPriceWithVat.toFixed(2).toString();
     }
 
-    private updateQuantity = (product: Product): void => {
+    public updateQuantity = (product: Product): void => {
         const productInList = this.list.querySelector(`[data-id="${product.id}-${product.size}"]`); 
         const quantity = productInList.querySelector('#quantity');
         quantity.textContent = product.quantity.toString();
