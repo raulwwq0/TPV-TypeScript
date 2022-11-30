@@ -1,7 +1,7 @@
 import { MenuSize } from "../enums/menu-size.enum";
 import { Product } from "../interfaces/product.interface";
 
-export class ProductListService {
+export class CartService {
     private _productList: Product[] = [];
     private _totalPrice: number = 0;
     private _totalPriceWithVat: number = 0;

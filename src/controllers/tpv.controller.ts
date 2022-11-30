@@ -1,29 +1,27 @@
-import { BurgerService } from "../services/burger.service";
-import { DrinkService } from "../services/drink.service";
+import { ProductService } from "../services/product.service";
 import { CardLayoutView } from "../views/card-layout.view";
 import { ProductListView } from "../views/product-list.view";
-import { ProductListService } from "../services/product-list.service";
+import { CartService } from "../services/cart.service";
 import { Product } from "../interfaces/product.interface";
 
 export class TpvController {
     constructor(
         private readonly cardLayoutView: CardLayoutView,
         private readonly productListView: ProductListView,
-        private readonly burgerService: BurgerService,
-        private readonly drinkService: DrinkService,
-        private readonly productListService: ProductListService
+        private readonly productService: ProductService,
+        private readonly productListService: CartService
     ) {
-        this.cardLayoutView.createBurgerCards(this.burgerService.burgers);
-        this.cardLayoutView.createDrinkCards(this.drinkService.drinks);
-        this.cardLayoutView.bindAddButtons(this.handlerAddProductToList);
+        this.cardLayoutView.createBurgerCards(this.productService.burgers);
+        this.cardLayoutView.createDrinkCards(this.productService.drinks);
+        this.cardLayoutView.bindAddButtons(this.handlerAddProductToCart);
     }
 
-    private handlerAddProductToList = (id: string, size: string): void => {
+    private handlerAddProductToCart = (id: string, size: string): void => {
         const product: Product = this.productListService.findProduct(id, size);
-        product ? this.updateProductInList(product) : this.addProductToList(id, size);       
+        product ? this.updateProductInCart(product) : this.addProductToCart(id, size);       
     };
 
-    private addProductToList = (id: string, size: string): void => {
+    private addProductToCart = (id: string, size: string): void => {
         const product = this.createProduct(id, size);
 
         if (product.quantity === 0 || product.size !== size) {
@@ -44,7 +42,7 @@ export class TpvController {
     }
 
 
-    private updateProductInList = (product: Product): void => {
+    private updateProductInCart = (product: Product): void => {
         product.quantity++;
         this.productListView.updateQuantity(product);
         this.productListView.updateTotalPrices(
@@ -55,11 +53,11 @@ export class TpvController {
 
     private createProduct = (id: string, size: string): Product => {
         if (id.includes("B")) {
-            return this.burgerService.createBurger(id, size);
+            return this.productService.createBurger(id, size);
         }
 
         if (id.includes("D")) {
-            return this.drinkService.createDrink(id, size);
+            return this.productService.createDrink(id, size);
         }
 
         return null;
