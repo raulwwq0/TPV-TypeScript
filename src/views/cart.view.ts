@@ -2,7 +2,7 @@ import { Product } from "../interfaces/product.interface";
 import { ProductInList } from "../components/product-in-list.component";
 import { RemoveProductCallback, UpdatePricesCallback } from "../types/callbacks.type";
 
-export class ProductListView {
+export class CartView {
 
     private list: HTMLElement = document.querySelector('ul');
     private totalPrice: HTMLElement = document.querySelector('#totalPrice');

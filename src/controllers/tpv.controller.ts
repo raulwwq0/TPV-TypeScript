@@ -1,13 +1,13 @@
 import { ProductService } from "../services/product.service";
 import { CardLayoutView } from "../views/card-layout.view";
-import { ProductListView } from "../views/product-list.view";
+import { CartView } from "../views/cart.view";
 import { CartService } from "../services/cart.service";
 import { Product } from "../interfaces/product.interface";
 
 export class TpvController {
     constructor(
         private readonly cardLayoutView: CardLayoutView,
-        private readonly productListView: ProductListView,
+        private readonly productListView: CartView,
         private readonly productService: ProductService,
         private readonly productListService: CartService
     ) {
