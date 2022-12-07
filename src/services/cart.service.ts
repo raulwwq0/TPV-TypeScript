@@ -1,54 +1,55 @@
 import { MenuSize } from "../enums/menu-size.enum";
 import { Product } from "../interfaces/product.interface";
 
+type Id = string;
+
 export class CartService {
-    private _productList: Product[] = [];
+    private _productList = new Map<Id, Product>();
     private _totalPrice: number = 0;
     private _totalPriceWithVat: number = 0;
 
-    public get productList(): Product[] {
+    public get productList(): Map<Id, Product> {
         return this._productList;
     }
 
     public addProduct(product: Product): void {
-        this._productList = [...this._productList, product];
+        this._productList.set(`${product.id}-${product.size}`, product);
     }
 
     public removeProduct(product: Product): void {
-        const index = this._productList.indexOf(product);
-        if (index > -1) {
-            this._productList.splice(index, 1);
-        }
+        this._productList.delete(`${product.id}-${product.size}`);
     }
 
     public removeAllProducts(): void {
-        this._productList.splice(0, this._productList.length);
+        this._productList.clear();
     }
 
     public findProduct = (id: string, size: string): Product => {
-        return this._productList.find(
-            (product: Product) =>
-                id.includes(product.id) && product.size === size
-        );
+        return this._productList.get(`${id}-${size}`)!;
     };
 
     public get totalPriceWithVat(): number {
-        this._totalPriceWithVat = this._productList.reduce((total, product) => {
+        const productList = Array.from(this._productList.values());
+        this._totalPriceWithVat = productList.reduce((total, product) => {
             return (
                 total +
-                (product.price + product.price * product.vat) *
-                    MenuSize[product.size] *
-                    product.quantity
+                product.price *
+                MenuSize[product.size as keyof typeof MenuSize] *
+                product.quantity *
+                (1 + product.vat)
             );
         }, 0);
-        return this._totalPriceWithVat;
+        return this._totalPriceWithVat;        
     }
 
     public get totalPrice(): number {
-        this._totalPrice = this._productList.reduce((total, product) => {
+        const productList = Array.from(this._productList.values());
+        this._totalPrice = productList.reduce((total, product) => {
             return (
                 total +
-                product.price * MenuSize[product.size] * product.quantity
+                product.price *
+                MenuSize[product.size as keyof typeof MenuSize] *
+                product.quantity
             );
         }, 0);
         return this._totalPrice;

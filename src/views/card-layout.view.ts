@@ -5,8 +5,8 @@ import { DrinkCard } from "../components/drink-card.component";
 import { AddProductToListCallback } from "../types/callbacks.type";
 
 export class CardLayoutView {
-    private cardLayout: HTMLElement = document.querySelector("#cardLayout");
-    private addButtons: NodeListOf<HTMLElement>;
+    private cardLayout: HTMLElement = document.querySelector("#cardLayout")!;
+    private addButtons: NodeListOf<HTMLElement> = null!;
 
     constructor() {}
 
@@ -31,11 +31,11 @@ export class CardLayoutView {
             addButton.addEventListener("click", () => {
                 const id = addButton.dataset.id;
                 const sizeRadioButton: HTMLInputElement =
-                    addButton.parentElement.querySelector(
+                    addButton.parentElement!.querySelector(
                         'input[name="size"]:checked'
-                    );
+                    )!;
                 const size = sizeRadioButton.value;
-                callback(id, size);
+                callback(id!, size);
             })
         );
     };

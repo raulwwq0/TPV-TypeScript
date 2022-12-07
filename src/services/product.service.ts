@@ -17,7 +17,7 @@ export class ProductService {
     public createBurger = (id: string, size: string): Burger => {
         const burgerScheme = this._burgers.find((burger: Burger) =>
             id.includes(burger.id)
-        );
+        )!;
         const burger = new Burger(burgerScheme);
         burger.quantity = 0;
         burger.size = size;
@@ -27,7 +27,7 @@ export class ProductService {
     public createDrink = (id: string, size: string): Drink => {
         const drinkScheme = this._drinks.find((drink: Drink) =>
             id.includes(drink.id)
-        );
+        )!;
         const drink = new Drink(drinkScheme);
         drink.quantity = 0;
         drink.size = size;

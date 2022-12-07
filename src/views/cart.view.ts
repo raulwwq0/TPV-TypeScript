@@ -4,9 +4,9 @@ import { RemoveProductCallback, UpdatePricesCallback } from "../types/callbacks.
 
 export class CartView {
 
-    private list: HTMLElement = document.querySelector('ul');
-    private totalPrice: HTMLElement = document.querySelector('#totalPrice');
-    private totalPriceWithVat: HTMLElement = document.querySelector('#totalPriceVat');
+    private list: HTMLElement = document.querySelector('ul')!;
+    private totalPrice: HTMLElement = document.querySelector('#totalPrice')!;
+    private totalPriceWithVat: HTMLElement = document.querySelector('#totalPriceVat')!;
 
     constructor() {}
 
@@ -17,7 +17,7 @@ export class CartView {
 
     public removeProduct = (product: Product): void => {
         const productInList = this.list.querySelector(`[data-id="${product.id}-${product.size}"]`);
-        this.list.removeChild(productInList);
+        this.list.removeChild(productInList!);
     }
 
     public updateTotalPrices = (totalPrice: number, totalPriceWithVat: number): void => {
@@ -26,15 +26,15 @@ export class CartView {
     }
 
     public updateQuantity = (product: Product): void => {
-        const productInList = this.list.querySelector(`[data-id="${product.id}-${product.size}"]`); 
-        const quantity = productInList.querySelector('#quantity');
+        const productInList = this.list.querySelector(`[data-id="${product.id}-${product.size}"]`)!; 
+        const quantity = productInList.querySelector('#quantity')!;
         quantity.textContent = product.quantity.toString();
     }
 
     public bindQuantityButtons = (product: Product, callbackUpdatePrices: UpdatePricesCallback, callbackRemoveProduct: RemoveProductCallback): void => {
-        const productInList = this.list.querySelector(`[data-id="${product.id}-${product.size}"]`);
-        const addButton = productInList.querySelector('#addButton');
-        const removeButton = productInList.querySelector('#removeButton');
+        const productInList = this.list.querySelector(`[data-id="${product.id}-${product.size}"]`)!;
+        const addButton = productInList.querySelector('#addButton')!;
+        const removeButton = productInList.querySelector('#removeButton')!;
         addButton.addEventListener('click', () => {
             product.quantity++;
             this.updateQuantity(product);

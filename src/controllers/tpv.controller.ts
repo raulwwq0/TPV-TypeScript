@@ -60,7 +60,7 @@ export class TpvController {
             return this.productService.createDrink(id, size);
         }
 
-        return null;
+        return {} as Product;
     };
 
     private handlerUpdatePrices = (): void => {
